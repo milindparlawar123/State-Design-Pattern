@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import personSpending.util.AvailableItems;
 import personSpending.util.FileProcessor;
+import personSpending.util.Results;
 
 
 /**
@@ -40,8 +41,9 @@ public class Driver {
 			fileProcAvlbItems.close();
 			
 			FileProcessor fileProcInput = new  FileProcessor("input.txt");
+			Results results= new Results("output.txt",2);
 			
-			PersonSpending personSpending= new PersonSpending();
+			PersonSpending personSpending= new PersonSpending(availableItems,results);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
