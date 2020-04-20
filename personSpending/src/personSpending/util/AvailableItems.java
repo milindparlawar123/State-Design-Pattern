@@ -20,5 +20,10 @@ public class AvailableItems {
 	public HashMap<String, String> getAllAvailableItems() {
 		return items;
 	}
+	public String getValueByKey(String key) {
+		return this.items.get(key);
+	}
+	
+	
 
 }

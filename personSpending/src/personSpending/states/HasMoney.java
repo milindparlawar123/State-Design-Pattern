@@ -2,11 +2,12 @@ package personSpending.states;
 
 import personSpending.driver.PersonSpending;
 
-public class HasLuxuriousState implements PersonStatesI{
+public class HasMoney implements PersonStatesI{
+
 
 	
 	PersonSpending personSpending;
-	public HasLuxuriousState(PersonSpending personSpending) {
+	public HasMoney(PersonSpending personSpending) {
 		this.personSpending=personSpending;
 	}
 	@Override
@@ -33,8 +34,6 @@ public class HasLuxuriousState implements PersonStatesI{
 				personSpending.getResults().addToList("EXTRAVAGANT::" + incoming.split(":")[1]+"--NO");
 			}
 
-		}else {
-			personSpending.setPerStates(personSpending.getHasExtravagantState());
 		}
 
 		
@@ -44,5 +43,6 @@ public class HasLuxuriousState implements PersonStatesI{
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

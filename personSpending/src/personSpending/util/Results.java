@@ -12,6 +12,7 @@ import java.util.Queue;
 
 public class Results implements PersisterI {
 	Queue<Integer> q = new LinkedList<>();
+	Double runningAverage=0.00;
 	List<String> out = new ArrayList<String>();
 	Integer windowSize;
 	private File file;
@@ -60,18 +61,41 @@ public class Results implements PersisterI {
 
 	public void setWindowSize(Integer windowSize) {
 		this.windowSize = windowSize;
+	}	
+	
+	public Double getRunningAverage() {
+		return runningAverage;
+	}
+
+	public void setRunningAverage(Double runningAverage) {
+		this.runningAverage = runningAverage;
 	}
 
 	@Override
-	public void close() {
-		// TODO Auto-generated method stub
-
-	}
+	public void close() {try {
+		this.fileWriter.close();
+	} catch (IOException e) {
+		System.err.println(Constants.ERROR_CLOSING_FILE);
+		e.printStackTrace();
+		System.exit(0);
+	}finally {
+		
+	}}
 
 	@Override
 	public void writeToFile() {
-		// TODO Auto-generated method stub
-
+		
+		for (int i = 0; i < out.size(); i++) {
+			try {
+				this.fileWriter.write(out.get(i).toString());
+				this.fileWriter.write(Constants.NEW_LINE);
+			} catch (IOException e) {
+				System.err.println(Constants.ERROR_WRITING_FILE);
+				e.printStackTrace();
+				System.exit(0);
+			}finally{}
+		}
+	
 	}
 
 }

@@ -45,6 +45,13 @@ public class Driver {
 			
 			PersonSpending personSpending= new PersonSpending(availableItems,results);
 			
+			while ((numberStr = fileProcInput.poll()) != null) {
+				personSpending.basic(numberStr);
+			}
+			
+			results.writeToFile();
+			results.close();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

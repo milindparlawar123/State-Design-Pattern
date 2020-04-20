@@ -3,6 +3,7 @@ package personSpending.driver;
 import personSpending.states.HasBasicState;
 import personSpending.states.HasExtravagantState;
 import personSpending.states.HasLuxuriousState;
+import personSpending.states.HasMoney;
 import personSpending.states.PersonStatesI;
 import personSpending.util.AvailableItems;
 import personSpending.util.Results;
@@ -12,6 +13,7 @@ public class PersonSpending {
 	PersonStatesI hasBasic;
 	PersonStatesI hasLuxurious;
 	PersonStatesI hasExtravagant;
+	PersonStatesI hasMoney;
 
 	PersonStatesI perStates;
 	AvailableItems availableItems;
@@ -21,7 +23,42 @@ public class PersonSpending {
 		hasBasic = new HasBasicState(this);
 		hasLuxurious = new HasLuxuriousState(this);
 		hasExtravagant = new HasExtravagantState(this);
-		availableItems= new AvailableItems();
+		hasMoney = new HasMoney(this);
+		this.availableItems = availableItems;
+		this.results = results;
+		perStates = hasBasic;
+	}
+
+	void basic(String incoming) {
+		perStates.basic(incoming);
+	}
+
+	void luxurious(String incoming) {
+		perStates.luxurious(incoming);
+	}
+
+	void extravagant(String incoming) {
+		perStates.extravagant(incoming);
+	}
+
+	void money(String incoming) {
+		perStates.money(incoming);
+	}
+
+	public AvailableItems getAvailableItems() {
+		return availableItems;
+	}
+
+	public void setAvailableItems(AvailableItems availableItems) {
+		this.availableItems = availableItems;
+	}
+
+	public Results getResults() {
+		return results;
+	}
+
+	public void setResults(Results results) {
+		this.results = results;
 	}
 
 	public PersonStatesI getHasBasicState() {
@@ -34,6 +71,10 @@ public class PersonSpending {
 
 	public PersonStatesI getHasExtravagantState() {
 		return hasExtravagant;
+	}
+
+	public PersonStatesI getHasMoneyState() {
+		return hasMoney;
 	}
 
 	public PersonStatesI getPerStates() {
