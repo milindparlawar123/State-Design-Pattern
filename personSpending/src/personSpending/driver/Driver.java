@@ -40,6 +40,9 @@ public class Driver {
 			fileProcAvlbItems.close();
 			
 			FileProcessor fileProcInput = new  FileProcessor("input.txt");
+			
+			PersonSpending personSpending= new PersonSpending();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

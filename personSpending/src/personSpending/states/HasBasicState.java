@@ -1,21 +1,28 @@
 package personSpending.states;
 
-public class HasBasicState  implements PersonStates{
+import personSpending.driver.PersonSpending;
 
+public class HasBasicState  implements PersonStatesI{
+	PersonSpending personSpending;
+	
+	public HasBasicState(PersonSpending personSpending) {
+		this.personSpending=personSpending;
+	}
+	
 	@Override
-	public void basic(Integer incoming) {
+	public void basic(String incoming) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void luxurious(Integer incoming) {
+	public void luxurious(String incoming) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void extravagant(Integer incoming) {
+	public void extravagant(String incoming) {
 		// TODO Auto-generated method stub
 		
 	}
