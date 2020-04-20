@@ -29,19 +29,19 @@ public class PersonSpending {
 		perStates = hasBasic;
 	}
 
-	void basic(String incoming) {
+	public void basic(String incoming) {
 		perStates.basic(incoming);
 	}
 
-	void luxurious(String incoming) {
+	public void luxurious(String incoming) {
 		perStates.luxurious(incoming);
 	}
 
-	void extravagant(String incoming) {
+	public void extravagant(String incoming) {
 		perStates.extravagant(incoming);
 	}
 
-	void money(String incoming) {
+	public void money(String incoming) {
 		perStates.money(incoming);
 	}
 

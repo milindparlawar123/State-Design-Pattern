@@ -42,6 +42,19 @@ public class Results implements PersisterI {
 	public void setQ(Queue<Integer> q) {
 		this.q = q;
 	}
+	public void addToQueue(Integer incoming) {
+		
+		
+		if(q.size()<windowSize) {
+			q.add(incoming);
+		}else {
+			q.poll();
+			q.add(incoming);
+		}
+		Integer sum= q.stream()
+				  .reduce(0, Integer::sum);
+		runningAverage= sum/q.size() *1.0;
+	}
 
 	public void addToList(String incoming) {
 		out.add(incoming);
@@ -68,7 +81,8 @@ public class Results implements PersisterI {
 	}
 
 	public void setRunningAverage(Double runningAverage) {
-		this.runningAverage = runningAverage;
+				
+			this.runningAverage = runningAverage;
 	}
 
 	@Override

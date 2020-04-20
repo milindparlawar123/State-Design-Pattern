@@ -13,7 +13,24 @@ public class HasBasicState implements PersonStatesI {
 	public void basic(String incoming) {
 		// TODO Auto-generated method stub
 
-		if (personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1]).equals("basic")) {
+		boolean flag=true;
+		try {
+			Integer.parseInt(incoming.split(":")[1]);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			flag=false;
+			//e.printStackTrace();
+		}
+		if (!flag && personSpending.getResults().getRunningAverage() >= 0.00
+				&& personSpending.getResults().getRunningAverage() < 10000) {
+			if (personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1])!= null && personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1]).equals("basic")) {
+				personSpending.getResults().addToList("BASIC::" + incoming.split(":")[1]+"--YES");
+			} else {
+				personSpending.getResults().addToList("BASIC::" + incoming.split(":")[1]+"--NO");
+			}
+
+		}
+		/*if (personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1])!= null && personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1]).equals("basic")) {
 			if (personSpending.getResults().getRunningAverage() >= 0.00
 					&& personSpending.getResults().getRunningAverage() < 10000) {
 				personSpending.getResults().addToList("BASIC::" + incoming.split(":")[1]+"--YES");
@@ -21,8 +38,9 @@ public class HasBasicState implements PersonStatesI {
 				personSpending.getResults().addToList("BASIC::" + incoming.split(":")[1]+"--NO");
 			}
 
-		}else {
-			personSpending.setPerStates(personSpending.getHasExtravagantState());
+		}*/else {
+			personSpending.setPerStates(personSpending.getHasLuxuriousState());
+			personSpending.luxurious(incoming);
 		}
 
 	}

@@ -61,7 +61,3 @@ public class Driver {
 
 	}
 }
-
-enum Enum {
-	INTEGER_EVENT, FLOATING_POINT_EVENT, PROCESSING_COMPLETE
-}
