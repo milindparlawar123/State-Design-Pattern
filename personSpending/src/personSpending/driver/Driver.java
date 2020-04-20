@@ -1,6 +1,9 @@
 package personSpending.driver;
 
-import personSpending.validator.DriverValidator;
+import java.io.IOException;
+
+import personSpending.util.AvailableItems;
+import personSpending.util.FileProcessor;
 
 
 /**
@@ -17,12 +20,29 @@ public class Driver {
 		 */
 		// below try block to validate arguments
 		try {
-			new DriverValidator(args.length, args);
+			//new DriverValidator(args.length, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(0);
 		} finally {
 
+		}
+		try {
+			AvailableItems availableItems= new AvailableItems();
+			FileProcessor fileProcAvlbItems = new  FileProcessor("availableItems.txt");
+			
+			String numberStr = null;
+			Number num = null;
+			while ((numberStr = fileProcAvlbItems.poll()) != null) {
+				availableItems.addToAvailableItems(numberStr);
+			}
+			//System.out.println(availableItems.getAllAvailableItems());
+			fileProcAvlbItems.close();
+			
+			FileProcessor fileProcInput = new  FileProcessor("input.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		
