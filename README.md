@@ -37,7 +37,7 @@ ant run -buildfile personSpending/src/build.xml -DinputFile="input.txt" -Davaila
 
 -----------------------------------------------------------------------
 ## Description:
-1. Driver class takes 6 arguments - input file, available items file, running average window size and output file.
+1. Driver class takes 4 arguments - input file, available items file, running average window size and output file.
 2. Driver validator class validates to check whether provided inputs are valid or not.
 3. PersonSpending class sets state to basic initially.
 4. Driver class reads line by line and pass it to PersonSpending class
