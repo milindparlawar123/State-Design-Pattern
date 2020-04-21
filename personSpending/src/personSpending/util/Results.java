@@ -9,6 +9,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ * @author Milind
+ * Results is store data which need to be written output file
+ * it is also to store running average 
+ * and once done with process, it will used to write content 
+ * to output file
+ */
 public class Results implements PersisterI {
 	Queue<Integer> q = new LinkedList<>();
 	Double runningAverage = 0.00;
@@ -111,6 +118,12 @@ public class Results implements PersisterI {
 			}
 		}
 
+	}
+
+	@Override
+	public String toString() {
+		return "Results [q=" + q + ", runningAverage=" + runningAverage + ", out=" + out + ", windowSize=" + windowSize
+				+ ", file=" + file + ", fileWriter=" + fileWriter + "]";
 	}
 
 }

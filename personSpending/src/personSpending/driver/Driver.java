@@ -3,7 +3,6 @@ package personSpending.driver;
 import java.io.IOException;
 
 import personSpending.util.AvailableItems;
-import personSpending.util.Constants;
 import personSpending.util.FileProcessor;
 import personSpending.util.Results;
 import personSpending.validator.CustomValidator;
@@ -12,6 +11,8 @@ import personSpending.validator.DriverValidator;
 
 /**
  * @author Milind.
+ * Driver is to poll line from input/items file, check data whether it is valid or not
+ * if yes, then call all other classes 
  */
 public class Driver {
 	public static void main(String[] args) {
@@ -35,7 +36,7 @@ public class Driver {
 		CustomValidatorI validator= new CustomValidator();
 		try {
 			AvailableItems availableItems = new AvailableItems();
-			FileProcessor fileProcAvlbItems = new FileProcessor("availableItems.txt");
+			FileProcessor fileProcAvlbItems = new FileProcessor(args[1]);
 
 			String numberStr = null;
 			Number num = null;
@@ -48,8 +49,8 @@ public class Driver {
 			// System.out.println(availableItems.getAllAvailableItems());
 			fileProcAvlbItems.close();
 
-			FileProcessor fileProcInput = new FileProcessor("input.txt");
-			Results results = new Results("output.txt", 2);
+			FileProcessor fileProcInput = new FileProcessor(args[0]);
+			Results results = new Results(args[3], Integer.parseInt(args[2]));
 
 			PersonSpending personSpending = new PersonSpending(availableItems, results);
 

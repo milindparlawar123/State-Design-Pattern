@@ -2,6 +2,11 @@ package personSpending.states;
 
 import personSpending.driver.PersonSpending;
 
+/**
+ * @author Milind
+ *HasMoney state will execute when there is money as key in
+ *input file
+ */
 public class HasMoney implements PersonStatesI {
 
 	PersonSpending personSpending;
@@ -38,6 +43,11 @@ public class HasMoney implements PersonStatesI {
 		}
 		personSpending.setPerStates(personSpending.getHasBasicState());
 
+	}
+
+	@Override
+	public String toString() {
+		return "HasMoney [personSpending=" + personSpending + "]";
 	}
 
 }

@@ -2,6 +2,11 @@ package personSpending.validator;
 
 import personSpending.util.Constants;
 
+/**
+ * @author Milind
+ * CustomValidator is to validate content from input file
+ * and available items file
+ */
 public class CustomValidator implements CustomValidatorI{
 
 	@Override
@@ -35,6 +40,11 @@ public class CustomValidator implements CustomValidatorI{
 			System.out.println(Constants.ERROR_LINE_FORMAT);
 			System.exit(0);
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "CustomValidator []";
 	}
 
 }

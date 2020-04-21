@@ -1,7 +1,13 @@
 package personSpending.states;
 
 import personSpending.driver.PersonSpending;
+import personSpending.util.Constants;
 
+/**
+ * @author Milind
+ * HasLuxuriousState state will execute its method when running average 
+ * Condition  10000 <=  running average of money earned < 50000  
+ */
 public class HasLuxuriousState implements PersonStatesI{
 
 	
@@ -14,7 +20,10 @@ public class HasLuxuriousState implements PersonStatesI{
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 *below method will check condition which is mentioned at class level
+	 * before adding output to data structure: 
+	 */
 	@Override
 	public void luxurious(String incoming) {
 		// TODO Auto-generated method stub
@@ -29,9 +38,9 @@ public class HasLuxuriousState implements PersonStatesI{
 		if (!flag && personSpending.getResults().getRunningAverage() >= 10000
 				&& personSpending.getResults().getRunningAverage() < 50000) {
 			if (personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1])!= null && (personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1]).equals("moderatelyExpensive") || personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1]).equals("basic"))) {
-				personSpending.getResults().addToList("LUXURIOUS::" + incoming.split(":")[1]+"--YES");
+				personSpending.getResults().addToList(Constants.MSG_LUXURIOUS + incoming.split(":")[1]+Constants.MSG_YES);
 			} else {
-				personSpending.getResults().addToList("LUXURIOUS::" + incoming.split(":")[1]+"--NO");
+				personSpending.getResults().addToList(Constants.MSG_LUXURIOUS + incoming.split(":")[1]+Constants.MSG_NO);
 			}
 
 		}
@@ -49,6 +58,10 @@ public class HasLuxuriousState implements PersonStatesI{
 	public void money(String incoming) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public String toString() {
+		return "HasLuxuriousState [personSpending=" + personSpending + "]";
 	}
 
 }

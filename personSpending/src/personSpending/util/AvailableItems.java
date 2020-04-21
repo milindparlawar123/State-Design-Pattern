@@ -2,6 +2,10 @@ package personSpending.util;
 
 import java.util.HashMap;
 
+/**
+ * @author Milind
+ *below class is to store all items in HashMap
+ */
 public class AvailableItems {
 	private HashMap<String, String> items;
 
@@ -22,6 +26,11 @@ public class AvailableItems {
 	}
 	public String getValueByKey(String key) {
 		return this.items.get(key);
+	}
+
+	@Override
+	public String toString() {
+		return "AvailableItems [items=" + items + "]";
 	}
 	
 	

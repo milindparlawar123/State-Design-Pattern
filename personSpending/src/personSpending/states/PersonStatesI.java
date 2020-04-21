@@ -1,5 +1,9 @@
 package personSpending.states;
 
+/**
+ * @author Milind
+ *states interface
+ */
 public interface PersonStatesI {
 
 	void basic(String incoming);

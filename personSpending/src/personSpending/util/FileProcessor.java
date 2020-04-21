@@ -9,6 +9,11 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 
+/**
+ * @author Milind
+ *
+ *below class is to read data from input file
+ */
 public final class FileProcessor {
 	private BufferedReader reader;
 	private String line;
@@ -17,13 +22,13 @@ public final class FileProcessor {
 			throws InvalidPathException, SecurityException, FileNotFoundException, IOException {
 
 		if (!Files.exists(Paths.get(inputFilePath))) {
-			throw new FileNotFoundException("invalid input file or input file in incorrect location");
+			throw new FileNotFoundException(Constants.ERROR_INVALID_INPUT_FILE);
 		}
 
 		reader = new BufferedReader(new FileReader(new File(inputFilePath)));
 		line = reader.readLine();
 		if (line == null) {
-			System.out.println(inputFilePath + " file is empty");
+			System.out.println(inputFilePath + Constants.ERROR_EMPTY_FILE);
 			System.exit(0);
 		}
 	}
@@ -42,9 +47,15 @@ public final class FileProcessor {
 			reader.close();
 			line = null;
 		} catch (IOException e) {
-			throw new IOException("failed to close file", e);
+			throw new IOException(Constants.ERROR_CLOSING_FILE, e);
 		} finally {
 
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "FileProcessor [reader=" + reader + ", line=" + line + "]";
+	}
+		
 }

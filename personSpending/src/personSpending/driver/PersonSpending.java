@@ -8,6 +8,11 @@ import personSpending.states.PersonStatesI;
 import personSpending.util.AvailableItems;
 import personSpending.util.Results;
 
+/**
+ * @author Milind
+ * This class will initialize all states in its
+ * constructor and sets initial state to basic state 
+ */
 public class PersonSpending {
 
 	PersonStatesI hasBasic;
@@ -83,6 +88,13 @@ public class PersonSpending {
 
 	public void setPerStates(PersonStatesI perStates) {
 		this.perStates = perStates;
+	}
+
+	@Override
+	public String toString() {
+		return "PersonSpending [hasBasic=" + hasBasic + ", hasLuxurious=" + hasLuxurious + ", hasExtravagant="
+				+ hasExtravagant + ", hasMoney=" + hasMoney + ", perStates=" + perStates + ", availableItems="
+				+ availableItems + ", results=" + results + "]";
 	}
 
 }

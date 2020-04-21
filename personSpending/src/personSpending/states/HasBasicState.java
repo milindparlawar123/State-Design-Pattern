@@ -1,14 +1,24 @@
 package personSpending.states;
 
 import personSpending.driver.PersonSpending;
+import personSpending.util.Constants;
 
+/**
+ * @author Anand
+ * HasExtravagantState state will execute its method when running average 
+ * Condition  0  <=  running average of money earned <10000
+ */
 public class HasBasicState implements PersonStatesI {
 	PersonSpending personSpending;
 
 	public HasBasicState(PersonSpending personSpending) {
 		this.personSpending = personSpending;
 	}
-
+	
+	/**
+	 *below method will check condition which is mentioned at class level
+	 * before adding output to data structure: 
+	 */
 	@Override
 	public void basic(String incoming) {
 		// TODO Auto-generated method stub
@@ -25,9 +35,9 @@ public class HasBasicState implements PersonStatesI {
 				&& personSpending.getResults().getRunningAverage() < 10000) {
 			if (personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1]) != null
 					&& personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1]).equals("basic")) {
-				personSpending.getResults().addToList("BASIC::" + incoming.split(":")[1] + "--YES");
+				personSpending.getResults().addToList(Constants.MSG_BASIC + incoming.split(":")[1] + Constants.MSG_YES);
 			} else {
-				personSpending.getResults().addToList("BASIC::" + incoming.split(":")[1] + "--NO");
+				personSpending.getResults().addToList(Constants.MSG_BASIC + incoming.split(":")[1] + Constants.MSG_NO);
 			}
 
 		}
@@ -54,6 +64,11 @@ public class HasBasicState implements PersonStatesI {
 	public void money(String incoming) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public String toString() {
+		return "HasBasicState [personSpending=" + personSpending + "]";
 	}
 
 }
