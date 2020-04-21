@@ -34,6 +34,7 @@ Description: Compiles your code and generates .class files inside the BUILD fold
 
 ant run -buildfile personSpending/src/build.xml -DinputFile="input.txt" -DavailableItemsFile="availableItems.txt" -DrunningAverageWindowSize="2" -DoutputFile="output.txt"
 
+provide your files name in place above given files naame.
 
 -----------------------------------------------------------------------
 ## Description:
