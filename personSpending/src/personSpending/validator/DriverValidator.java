@@ -54,7 +54,10 @@ public class DriverValidator {
 						} catch (NumberFormatException e) {
 							throw new Exception(Constants.ERROR_RUNNING_AVERAGE_WINDOW_SIZE_VAL);
 						}
-
+						if (d.getArgs()[0].trim().length() == 0 || d.getArgs()[1].trim().length() == 0
+								|| d.getArgs()[3].trim().length() == 0) {
+							throw new Exception(Constants.ERROR_FILE_NAME);
+						}
 					}
 				}
 			};

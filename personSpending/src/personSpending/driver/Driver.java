@@ -6,6 +6,8 @@ import personSpending.util.AvailableItems;
 import personSpending.util.Constants;
 import personSpending.util.FileProcessor;
 import personSpending.util.Results;
+import personSpending.validator.CustomValidator;
+import personSpending.validator.CustomValidatorI;
 import personSpending.validator.DriverValidator;
 
 /**
@@ -29,6 +31,8 @@ public class Driver {
 		} finally {
 
 		}
+		
+		CustomValidatorI validator= new CustomValidator();
 		try {
 			AvailableItems availableItems = new AvailableItems();
 			FileProcessor fileProcAvlbItems = new FileProcessor("availableItems.txt");
@@ -37,10 +41,8 @@ public class Driver {
 			Number num = null;
 			while ((numberStr = fileProcAvlbItems.poll()) != null) {
 
-				if (!numberStr.contains(":") || numberStr.split(":").length != 2) {
-					System.out.println(Constants.ERROR_LINE_FORMAT);
-					System.exit(0);
-				}
+				validator.validateAvItemsInputFile(numberStr);
+				
 				availableItems.addToAvailableItems(numberStr);
 			}
 			// System.out.println(availableItems.getAllAvailableItems());
@@ -53,27 +55,8 @@ public class Driver {
 
 			while ((numberStr = fileProcInput.poll()) != null) {
 
-				if (!numberStr.contains(":") && numberStr.split(":").length != 2) {
-					System.out.println(Constants.ERROR_LINE_FORMAT);
-					System.exit(0);
-				}
-				try {
-					if (numberStr.contains("money")) {
-						Integer.parseInt(numberStr.split(":")[1]);
-					}
-
-					if (numberStr.contains("money") && Integer.parseInt(numberStr.split(":")[1]) <= 0) {
-						System.out.println(Constants.ERROR_MONEY);
-						System.exit(0);
-					}
-				} catch (Exception e) {
-					// TODO: handle exception
-					System.out.println(Constants.ERROR_MONEY_VAL);
-					System.exit(0);
-				}
-				finally {
-
-				}
+				validator.validateInputFile(numberStr);
+				
 				personSpending.basic(numberStr);
 			}
 

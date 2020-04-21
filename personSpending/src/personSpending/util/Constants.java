@@ -29,6 +29,8 @@ public class Constants {
 	public static final String ERROR_MONEY = "Money earned in input file should be greater than 0";
 	public static final String ERROR_LINE_FORMAT = "Line in the input file does not follow the specified formats- for ex: key:value ";
 	
+	public static final String ERROR_FILE_NAME = "provide valid file name ";
+	
 	public static final String ARG_0="${inputFile}";
 	public static final String ARG_1="${availableItemsFile}";
 	public static final String ARG_2="${runningAverageWindowSize}";
