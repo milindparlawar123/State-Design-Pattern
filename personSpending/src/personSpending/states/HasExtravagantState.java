@@ -37,16 +37,7 @@ public class HasExtravagantState implements PersonStatesI {
 			}
 
 		}
-		
-		/*if (personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1])!= null && personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1]).equals("superExpensive")) {
-			if (personSpending.getResults().getRunningAverage() >= 10000
-					&& personSpending.getResults().getRunningAverage() < 50000) {
-				personSpending.getResults().addToList("EXTRAVAGANT::" + incoming.split(":")[1]+"--YES");
-			} else {
-				personSpending.getResults().addToList("EXTRAVAGANT::" + incoming.split(":")[1]+"--NO");
-			}
-
-		}*/else {
+		else {
 			personSpending.setPerStates(personSpending.getHasMoneyState());
 			personSpending.money(incoming);
 		}

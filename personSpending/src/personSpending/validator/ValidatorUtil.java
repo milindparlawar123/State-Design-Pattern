@@ -1,6 +1,5 @@
 package personSpending.validator;
 
-
 /**
  * @author Milind
  *

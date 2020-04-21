@@ -35,15 +35,7 @@ public class HasLuxuriousState implements PersonStatesI{
 			}
 
 		}
-		/*if (personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1])!= null && personSpending.getAvailableItems().getValueByKey(incoming.split(":")[1]).equals("moderatelyExpensive")) {
-			if (personSpending.getResults().getRunningAverage() >= 10000
-					&& personSpending.getResults().getRunningAverage() < 50000) {
-				personSpending.getResults().addToList("LUXURIOUS::" + incoming.split(":")[1]+"--YES");
-			} else {
-				personSpending.getResults().addToList("LUXURIOUS::" + incoming.split(":")[1]+"--NO");
-			}
-
-		}*/else {
+		else {
 			personSpending.setPerStates(personSpending.getHasExtravagantState());
 			personSpending.extravagant(incoming);
 		}

@@ -17,27 +17,22 @@ public class Constants {
 	public static final String ERROR_INVALID_NUMBER = "Invalid number in file";
 	public static final String ERROR_IN_REGISTER_OBSERVERS = "exception occured while registering observers";
 	public static final String ERROR_INVALID_ARGUMENTS = "invalid argumnets ";
-	public static final String ERROR_ALL_ARG_FILES_REQUIRED = "provide all 4 files: input.txt , run-avg-out.txt , top-k-out.txt and Running average window size and Max size of top K numbers ";
+	public static final String ERROR_ALL_ARG_FILES_REQUIRED = "provide all 3 files: input.txt , availableItemsFile.txt , outputFile.txt and Running average window size.";
 	public static final String ERROR_DUPLICATE_FILES = "two files should not be same";
 	
-	public static final String INTEGER_EVENT="INTEGER_EVENT";
-	public static final String FLOATING_POINT_EVENT="FLOATING_POINT_EVENT";
-	public static final String PROCESSING_COMPLETE="PROCESSING_COMPLETE";
-	public static final String ERROR_NUM_THREADS = "privide valid numThreads value";
-	public static final String ERROR_NUM_THREADS_SIZE =  "numThreads should be between 1 and 5";
+	public static final String ERROR_RUNNING_AVERAGE_WINDOW_SIZE_VAL = "privide valid running Average Window Size";
+	public static final String ERROR_RUNNING_AVERAGE_WINDOW_SIZE =  "running Average Window Size should be greater than 0";
 	public static final String ERROR_CAPACITY = "privide valid capacity value";
 	public static final String ERROR_CAPACITY_SIZE = "privide valid capacity size, greater than 0";
 	public static final String ERROR_DEBUG = "privide valid debug value";
-	public static final String ERROR_DEBUG_VALUE = "debug value should be between 0 and 4";
-	public static final String ERROR_PERSISTER_SERVICE_PORT = "privide valid persister Service Port";
-	public static final String ERROR_PERSISTER_SERVICE_PORT_RANGE = "persister Service Port value should be between 32768 and 50000";
+	public static final String ERROR_MONEY_VAL = "Money earned in input file should be integer";
+	public static final String ERROR_MONEY = "Money earned in input file should be greater than 0";
+	public static final String ERROR_LINE_FORMAT = "Line in the input file does not follow the specified formats- for ex: key:value ";
 	
-	public static final String ARG_0="${inputNumStream}";
-	public static final String ARG_1="${runAvgWindowSize}";
-	public static final String ARG_2="${runAvgOutFile}";
-	public static final String ARG_3="${k}";
-	public static final String ARG_4="${topKNumOutFile}";
-	public static final String ARG_5="${numPeaksOutFile}";
+	public static final String ARG_0="${inputFile}";
+	public static final String ARG_1="${availableItemsFile}";
+	public static final String ARG_2="${runningAverageWindowSize}";
+	public static final String ARG_3="${outputFile}";
 	
 	
 

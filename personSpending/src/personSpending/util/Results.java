@@ -9,10 +9,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-
 public class Results implements PersisterI {
 	Queue<Integer> q = new LinkedList<>();
-	Double runningAverage=0.00;
+	Double runningAverage = 0.00;
 	List<String> out = new ArrayList<String>();
 	Integer windowSize;
 	private File file;
@@ -42,18 +41,17 @@ public class Results implements PersisterI {
 	public void setQ(Queue<Integer> q) {
 		this.q = q;
 	}
+
 	public void addToQueue(Integer incoming) {
-		
-		
-		if(q.size()<windowSize) {
+
+		if (q.size() < windowSize) {
 			q.add(incoming);
-		}else {
+		} else {
 			q.poll();
 			q.add(incoming);
 		}
-		Integer sum= q.stream()
-				  .reduce(0, Integer::sum);
-		runningAverage= sum/q.size() *1.0;
+		Integer sum = q.stream().reduce(0, Integer::sum);
+		runningAverage = sum / q.size() * 1.0;
 	}
 
 	public void addToList(String incoming) {
@@ -74,31 +72,33 @@ public class Results implements PersisterI {
 
 	public void setWindowSize(Integer windowSize) {
 		this.windowSize = windowSize;
-	}	
-	
+	}
+
 	public Double getRunningAverage() {
 		return runningAverage;
 	}
 
 	public void setRunningAverage(Double runningAverage) {
-				
-			this.runningAverage = runningAverage;
+
+		this.runningAverage = runningAverage;
 	}
 
 	@Override
-	public void close() {try {
-		this.fileWriter.close();
-	} catch (IOException e) {
-		System.err.println(Constants.ERROR_CLOSING_FILE);
-		e.printStackTrace();
-		System.exit(0);
-	}finally {
-		
-	}}
+	public void close() {
+		try {
+			this.fileWriter.close();
+		} catch (IOException e) {
+			System.err.println(Constants.ERROR_CLOSING_FILE);
+			e.printStackTrace();
+			System.exit(0);
+		} finally {
+
+		}
+	}
 
 	@Override
 	public void writeToFile() {
-		
+
 		for (int i = 0; i < out.size(); i++) {
 			try {
 				this.fileWriter.write(out.get(i).toString());
@@ -107,9 +107,10 @@ public class Results implements PersisterI {
 				System.err.println(Constants.ERROR_WRITING_FILE);
 				e.printStackTrace();
 				System.exit(0);
-			}finally{}
+			} finally {
+			}
 		}
-	
+
 	}
 
 }
